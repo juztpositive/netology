@@ -13,13 +13,20 @@ while True:
     command = input('Введите команду:\n')
     if command == 'p':
         docnum = input('Введите номер документа:\n')
+        result = "владелец не найден"
         for i in documents:
             if i['number'] == docnum:
-                print(f'Результат:\nВладелец документа: {i['name']}')
+                result = i['name']
+                break
+        print(f'Владелец документа: {result}')
+
     elif command == 's':
         docnum = input('Введите номер документа:\n')
+        result = "полка не найдена"
         for k, v in directories.items():
             if v.__contains__(docnum):
-                print(f'Результат:\nДокумент хранится на полке: {k}')
+                result = k
+                break
+        print(f'Документ хранится на полке: {result}')
     elif command == 'q':
         break
