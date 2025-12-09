@@ -29,8 +29,9 @@ def checkgender(gender):
 for line in info:
     splitedline = line.split(",")
     username = splitedline[0]
-    gender = "женского" if checkgender(splitedline[3]) else "мужского"
-    gendersecond = "совершила" if checkgender(splitedline[3]) else "совершил"
+    isfemale = checkgender(splitedline[3])
+    gender = "женского" if isfemale else "мужского"
+    gendersecond = "совершила" if isfemale else "совершил"
     age = checkage(splitedline[4])
     device = checkdevice(splitedline[1])
     browser = splitedline[2]
