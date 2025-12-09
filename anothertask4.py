@@ -35,7 +35,7 @@ for line in info:
     age_info = f'{get_age(info_split[4]) + (" совершила" if isfemale else " совершил")} покупку на'
     device_info = f'с {get_device(info_split[1])} браузера {info_split[2]}'
     region = f'Регион, из которого совершалась покупка: {info_split[6]}'
-    username_info = f'Пользователь {info_split[0] + ' ' + gender} пола'
+    username_info = f'Пользователь {info_split[0]} {gender} пола'
 
     string = f'{username_info}, {age_info} {info_split[5]} у.е. {device_info}. {region}'
     table_info.append(string)
