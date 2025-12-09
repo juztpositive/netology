@@ -28,7 +28,15 @@ def checkgender(gender):
 
 for line in info:
     splitedline = line.split(",")
-    string = f'Пользователь {splitedline[0]} {checkgender(splitedline[3]) and "женского" or "мужского"} пола, {checkage(splitedline[4])} {checkgender(splitedline[3]) and "совершила" or "совершил"} покупку на {splitedline[5]} у.е. с {checkdevice(splitedline[1])} браузера {splitedline[2]}. Регион, из которого совершалась покупка: {splitedline[6].replace("\\n", "")}'
+    username = splitedline[0]
+    gender = "женского" if checkgender(splitedline[3]) else "мужского"
+    gendersecond = "совершила" if checkgender(splitedline[3]) else "совершил"
+    age = checkage(splitedline[4])
+    device = checkdevice(splitedline[1])
+    browser = splitedline[2]
+    region = splitedline[6]
+
+    string = f'Пользователь {username} {gender} пола, {age} {gendersecond} покупку на {splitedline[5]} у.е. с {device} браузера {browser}. Регион, из которого совершалась покупка: {region}'
     tableinformation.append(string)
 
-newfile = open("testttt.txt", "w", encoding="utf-8").writelines(tableinformation)
+newfile = open("new.txt", "w", encoding="utf-8").writelines(tableinformation)
